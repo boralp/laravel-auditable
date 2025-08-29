@@ -27,7 +27,7 @@ It’s designed to be **easy to install, reusable across projects, and highly co
 ## Installation
 
 ```bash
-composer require yourname/laravel-auditable
+composer require boralp/laravel-auditable
 
-php artisan vendor:publish --provider="YourName\Auditable\AuditableServiceProvider" --tag=config
+php artisan vendor:publish --provider="Boralp\Auditable\AuditableServiceProvider" --tag=config
 php artisan migrate
