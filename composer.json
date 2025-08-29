@@ -1,0 +1,22 @@
+{
+  "name": "boralp/laravel-auditable",
+  "description": " A lightweight Laravel package to track model changes with IP (binary), deduplicated user agents, and created_by/updated_by auto-fill. Includes export, cleanup, and API endpoints for easy audit history access. ",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "Boralp\\Auditable\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Boralp\\Auditable\\AuditableServiceProvider"
+      ]
+    }
+  },
+  "require-dev": {
+    "laravel/pint": "^1.24"
+  }
+}
