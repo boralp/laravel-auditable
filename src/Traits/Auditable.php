@@ -38,8 +38,8 @@ trait Auditable
         try {
             $uaId = null;
             if (config('auditable.track_user_agent')) {
-                $uaString = request()->userAgent();
-                $uaHash = hash('sha256', $uaString);
+                $uaString = $this->sanitizeUserAgent($request->userAgent());
+                $uaHash = hash('xxh128', $uaString);
 
                 $uaId = UserAgent::firstOrCreate(
                     ['hash' => $uaHash],
@@ -59,6 +59,19 @@ trait Auditable
         } catch (\Exception $e) {
             \Log::error('Audit log failed: '.$e->getMessage());
         }
+    }
+
+
+    /**
+     * Sanitize user agent string
+     */
+    private function sanitizeUserAgent(?string $userAgent): ?string
+    {
+        if (! $userAgent) {
+            return null;
+        }
+
+        return mb_substr(trim($userAgent), 0, 1024);
     }
 
     public function audits()
