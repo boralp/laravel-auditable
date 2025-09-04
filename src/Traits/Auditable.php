@@ -61,7 +61,6 @@ trait Auditable
         }
     }
 
-
     /**
      * Sanitize user agent string
      */
