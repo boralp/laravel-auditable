@@ -8,5 +8,11 @@ class UserAgent extends Model
 {
     const UPDATED_AT = null;
 
-    protected $fillable = ['hash', 'user_agent'];
+    protected $fillable = [
+        'raw',
+        'device_category',
+        'browser_name',
+        'os_name',
+        'hash',
+    ];
 }

@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('user_agents', function (Blueprint $table): void {
             $table->id();
-            $table->string('hash', 64)->unique();
-            $table->text('user_agent');
-            $table->timestamp('created_at')->useCurrent();
-            $table->index('created_at');
+            $table->text('raw', 1024);
+            $table->string('device_category', 16)->index()->nullable();
+            $table->string('browser_name', 32)->nullable();
+            $table->string('os_name', 16)->index()->nullable();
+            $table->string('hash', 32)->unique();
+            $table->timestamp('created_at');
         });
     }
 
