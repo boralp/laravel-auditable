@@ -9,12 +9,14 @@ class AuditableServiceProvider extends ServiceProvider
     public function boot()
     {
         // publish migrations
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations'),
+        ], 'auditable-migrations');
 
         // publish config
         $this->publishes([
             __DIR__.'/../config/auditable.php' => config_path('auditable.php'),
-        ], 'config');
+        ], 'auditable-config');
 
         if ($this->app->runningInConsole()) {
             $this->commands([
