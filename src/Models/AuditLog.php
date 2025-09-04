@@ -14,7 +14,7 @@ class AuditLog extends Model
         'auditable_id',
         'user_id',
         'action',
-        'ip_address',
+        'ip',
         'user_agent_id',
         'changes',
     ];
@@ -39,14 +39,14 @@ class AuditLog extends Model
     }
 
     // Accessor to return human-readable IP
-    public function getIpAddressAttribute($value): ?string
+    public function getIpAttribute($value): ?string
     {
         return $value ? inet_ntop($value) : null;
     }
 
     // Mutator to set IP in binary
-    public function setIpAddressAttribute($value): void
+    public function setIpAttribute($value): void
     {
-        $this->attributes['ip_address'] = $value ? inet_pton($value) : null;
+        $this->attributes['ip'] = $value ? inet_pton($value) : null;
     }
 }
