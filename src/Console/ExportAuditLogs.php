@@ -1,8 +1,8 @@
 <?php
 
-namespace boralp\Auditable\Console;
+namespace Boralp\Auditable\Console;
 
-use boralp\Auditable\Models\AuditLog;
+use Boralp\Auditable\Models\AuditLog;
 use Illuminate\Console\Command;
 
 class ExportAuditLogs extends Command
